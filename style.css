@@ -914,15 +914,12 @@ h4 {
 }
 
 .cert-track img {
-  height: 40px;
-  opacity: 0.5;
-  filter: grayscale(100%);
+  height: auto;
   transition: var(--transition);
 }
 
 .cert-track img:hover {
-  opacity: 1;
-  filter: grayscale(0);
+  transform: scale(1.05);
 }
 
 @keyframes scrollMarquee {
