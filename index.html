@@ -25,7 +25,7 @@
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#" class="nav-logo">
-        <img src="images/brand_logo.png" alt="JK Coaching Logo" style="height: 48px; width: auto;" />
+        <img src="images/brand_logo.png" alt="JK Coaching Logo" style="height: 80px; width: auto; transition: 0.3s;" />
       </a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#home">Home</a></li>
@@ -406,7 +406,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="nav-logo footer-logo">
-            <img src="images/brand_logo.png" alt="JK Coaching Logo" style="height: 48px; width: auto;" />
+            <img src="images/brand_logo.png" alt="JK Coaching Logo" style="height: 90px; width: auto;" />
           </a>
           <p>Professional coaching for personal development, career growth, business leadership, and team performance.
           </p>
@@ -522,18 +522,27 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('.stats-grid').forEach(el => statObserver.observe(el));
 
-    // ===== Scroll Reveal =====
-    const revealObserver = new IntersectionObserver((entries) => {
+    // ===== Slick Scroll Animations =====
+    const slickObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          revealObserver.unobserve(entry.target);
+          entry.target.classList.add('is-visible');
+          slickObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.section-header, .benefits-content, .benefit-item, .about-content, .about-portrait, .featured-content, .featured-image, .card, .testimonial-featured, .testimonial-card, .cta-content').forEach(el => {
-      el.classList.add('reveal');
-      revealObserver.observe(el);
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    // Target elements and apply specific slick animations dynamically
+    const fadeUpElements = document.querySelectorAll('.section-header, .benefits-content, .about-content, .featured-content, .cta-content');
+    fadeUpElements.forEach(el => { el.classList.add('animate-on-scroll'); slickObserver.observe(el); });
+
+    const scaleElements = document.querySelectorAll('.card, .testimonial-card, .about-portrait, .featured-image, .benefit-item');
+    scaleElements.forEach((el, index) => {
+      el.classList.add('animate-scale-up');
+      // Add slight staggered delays based on index for grid items
+      if (index % 3 === 1) el.classList.add('delay-100');
+      if (index % 3 === 2) el.classList.add('delay-200');
+      slickObserver.observe(el);
     });
 
     // ===== Smooth Scroll =====
