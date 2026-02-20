@@ -148,7 +148,8 @@ h4 {
 .navbar.scrolled {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  padding: 12px 0;
+  padding: 8px 0;
+  /* Slightly reduced vertical padding for better balance with larger logo */
   box-shadow: 0 2px 20px rgba(58, 42, 30, 0.08);
 }
 
@@ -170,6 +171,18 @@ h4 {
   font-size: 1.3rem;
   color: white;
   transition: var(--transition);
+}
+
+.nav-logo img {
+  height: 100px;
+  /* Increased from 80px */
+  width: auto;
+  transition: var(--transition);
+}
+
+.navbar.scrolled .nav-logo img {
+  height: 80px;
+  /* Smaller when scrolled */
 }
 
 .navbar.scrolled .nav-logo {
@@ -464,6 +477,19 @@ h4 {
   gap: 8px;
   margin-bottom: 48px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .services-tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tab-btn {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 .tab-btn {
@@ -1381,8 +1407,14 @@ h4 {
     display: flex;
   }
 
+  .nav-logo img {
+    height: 85px !important;
+    /* Bigger logo on mobile */
+  }
+
   .hero-content {
-    padding: 140px 24px 60px;
+    padding: 120px 24px 60px;
+    /* Reduced top padding slightly for larger logo */
     margin: 0;
   }
 

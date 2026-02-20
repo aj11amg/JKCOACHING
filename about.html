@@ -17,6 +17,11 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <meta name="keywords" content="about coaching, NLP, life coach, Jamela Khan, London coach">
+    <meta name="author" content="Jamela Khan">
+    <meta property="og:image" content="images/logo_on_table.png">
 </head>
 
 <body class="about-page">
@@ -25,8 +30,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <img src="images/brand_logo.png" alt="JK Coaching Logo"
-                    style="height: 80px; width: auto; transition: 0.3s;" />
+                <img src="images/brand_logo.png" alt="JK Coaching Logo" />
             </a>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html#home">Home</a></li>
@@ -391,7 +395,7 @@
             };
         };
 
-        const SIZE = 180;
+        let SIZE = window.innerWidth < 600 ? 120 : 180;
 
         class Butterfly {
             constructor(i, texture) {
@@ -404,7 +408,7 @@
                 this.obj = this.createObj();
             }
             createObj() {
-                const geometry = new THREE.PlaneBufferGeometry(SIZE, SIZE / 2, 24, 12);
+                const geometry = new THREE.PlaneBufferGeometry(size, size / 2, 24, 12);
                 const mesh = new THREE.Mesh(
                     geometry,
                     new THREE.RawShaderMaterial({
@@ -578,7 +582,10 @@ void main() {
 
         const initButterflies = () => {
             resizeWindow();
-            window.addEventListener('resize', debounce(resizeWindow, 300));
+            window.addEventListener('resize', debounce(() => {
+                SIZE = window.innerWidth < 600 ? 120 : 180;
+                resizeWindow();
+            }, 300));
 
             // Matching the theme color
             renderer.setClearColor(0xffffff, 1.0);
