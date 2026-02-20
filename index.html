@@ -437,17 +437,46 @@
 
   <!-- ===================== CTA ===================== -->
   <section class="cta" id="contact">
-    <div class="container cta-content" style="text-align: center;">
-      <img src="images/logo_on_table.png" alt="JK Coaching Logo on Table"
-        style="max-width: 300px; margin: 0 auto 30px auto; display: block; border-radius: 12px; box-shadow: var(--shadow);"
-        class="animate-on-scroll delay-100">
-      <h2 style="margin-bottom: 20px;">Ready to take the first step?</h2>
-      <p style="margin-bottom: 30px;">Book a free coaching session today and discover how professional coaching can help
-        you reach your goals.</p>
-      <div class="cta-buttons">
-        <a href="https://wa.me/447908255034" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Free
-          Session</a>
-        <a href="mailto:info@jkhancoaching.com" class="btn btn-secondary btn-lg">Email Me</a>
+    <div class="gradient-bg">
+      <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg">
+        <filter id='noiseFilterBg'>
+          <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
+        </filter>
+        <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilterBg)' />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div class="gradients-container">
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g4"></div>
+        <div class="g5"></div>
+        <div class="interactive"></div>
+      </div>
+    </div>
+
+    <div class="container cta-content-wrapper">
+      <div class="cta-content">
+        <img src="images/logo_on_table.png" alt="JK Coaching Logo on Table"
+          style="max-width: 300px; margin: 0 auto 30px auto; display: block; border-radius: 12px; box-shadow: var(--shadow);"
+          class="animate-on-scroll delay-100">
+        <h2 style="margin-bottom: 20px;">Ready to take the first step?</h2>
+        <p style="margin-bottom: 30px;">Book a free coaching session today and discover how professional coaching can
+          help
+          you reach your goals.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/447908255034" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Free
+            Session</a>
+          <a href="mailto:info@jkhancoaching.com" class="btn btn-secondary btn-lg">Email Me</a>
+        </div>
       </div>
     </div>
   </section>
@@ -606,6 +635,34 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+
+    // ===== Interactive Gradient =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const interBubble = document.querySelector('.interactive');
+      if (!interBubble) return;
+      let curX = 0;
+      let curY = 0;
+      let tgX = 0;
+      let tgY = 0;
+
+      const move = () => {
+        curX += (tgX - curX) / 20;
+        curY += (tgY - curY) / 20;
+        interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+        requestAnimationFrame(move);
+      };
+
+      window.addEventListener('mousemove', (event) => {
+        const rect = document.getElementById('contact').getBoundingClientRect();
+        // Only track if mouse is near or on the CTA section for performance
+        if (event.clientY >= rect.top - 500 && event.clientY <= rect.bottom + 500) {
+          tgX = event.clientX;
+          tgY = event.clientY - rect.top; // Relative to the section
+        }
+      });
+
+      move();
     });
   </script>
 </body>

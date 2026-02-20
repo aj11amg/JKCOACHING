@@ -947,8 +947,27 @@ h4 {
 
 /* ===== CTA ===== */
 .cta {
-  padding: 100px 0;
+  position: relative;
+  padding: 120px 0;
   background: var(--bg-dark);
+  overflow: hidden;
+}
+
+.cta-content-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
   text-align: center;
 }
 
@@ -959,10 +978,11 @@ h4 {
 }
 
 .cta-content p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   max-width: 560px;
   margin: 0 auto 36px;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
 }
 
 .cta-buttons {
@@ -980,6 +1000,146 @@ h4 {
 .cta .btn-secondary:hover {
   border-color: white;
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* Interactive Gradient Styles */
+.gradient-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--bg-dark);
+  z-index: 0;
+}
+
+.gradient-bg .svgBlur {
+  display: none;
+}
+
+.gradient-bg .noiseBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  mix-blend-mode: soft-light;
+  opacity: 0.2;
+}
+
+.gradients-container {
+  filter: url(#goo) blur(40px);
+  width: 100%;
+  height: 100%;
+}
+
+.g1,
+.g2,
+.g3,
+.g4,
+.g5,
+.interactive {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  opacity: 0.8;
+  mix-blend-mode: hard-light;
+}
+
+/* Primary Blue */
+.g1 {
+  background: radial-gradient(circle at center, rgba(26, 54, 93, 0.8) 0, rgba(26, 54, 93, 0) 50%) no-repeat;
+  top: 10%;
+  left: 10%;
+  animation: moveVertical 30s ease infinite;
+}
+
+/* Gold Accent */
+.g2 {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.4) 0, rgba(212, 175, 55, 0) 50%) no-repeat;
+  top: 20%;
+  left: 20%;
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+}
+
+/* Darker Blue */
+.g3 {
+  background: radial-gradient(circle at center, rgba(11, 25, 44, 0.8) 0, rgba(11, 25, 44, 0) 50%) no-repeat;
+  top: 30%;
+  left: -10%;
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+}
+
+/* Muted Blue */
+.g4 {
+  background: radial-gradient(circle at center, rgba(49, 82, 122, 0.6) 0, rgba(49, 82, 122, 0) 50%) no-repeat;
+  top: 40%;
+  left: 40%;
+  animation: moveHorizontal 40s ease infinite;
+}
+
+/* Dark Blue */
+.g5 {
+  background: radial-gradient(circle at center, rgba(11, 25, 44, 0.8) 0, rgba(11, 25, 44, 0) 50%) no-repeat;
+  width: 100%;
+  height: 100%;
+  top: -10%;
+  left: -10%;
+  animation: moveInCircle 20s ease infinite;
+}
+
+.interactive {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.3) 0, rgba(212, 175, 55, 0) 50%) no-repeat;
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 1;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-30%);
+  }
+
+  50% {
+    transform: translateY(30%);
+  }
+
+  100% {
+    transform: translateY(-30%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-30%) translateY(-10%);
+  }
+
+  50% {
+    transform: translateX(30%) translateY(10%);
+  }
+
+  100% {
+    transform: translateX(-30%) translateY(-10%);
+  }
 }
 
 /* ===== FOOTER ===== */
