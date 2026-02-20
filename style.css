@@ -242,6 +242,11 @@ h4 {
   transition: var(--transition);
 }
 
+/* Don't show underline on buttons */
+.nav-links a.btn::after {
+  display: none;
+}
+
 .nav-links a:hover::after {
   width: 100%;
 }
