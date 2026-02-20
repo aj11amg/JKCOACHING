@@ -1047,9 +1047,9 @@ h4 {
   mix-blend-mode: hard-light;
 }
 
-/* Primary Blue */
+/* Vibrant Logo Blue */
 .g1 {
-  background: radial-gradient(circle at center, rgba(26, 54, 93, 0.8) 0, rgba(26, 54, 93, 0) 50%) no-repeat;
+  background: radial-gradient(circle at center, rgba(147, 210, 240, 0.8) 0, rgba(147, 210, 240, 0) 50%) no-repeat;
   top: 10%;
   left: 10%;
   animation: moveVertical 30s ease infinite;
@@ -1057,25 +1057,25 @@ h4 {
 
 /* Gold Accent */
 .g2 {
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.4) 0, rgba(212, 175, 55, 0) 50%) no-repeat;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.5) 0, rgba(212, 175, 55, 0) 50%) no-repeat;
   top: 20%;
   left: 20%;
   transform-origin: calc(50% - 400px);
   animation: moveInCircle 20s reverse infinite;
 }
 
-/* Darker Blue */
+/* Primary Navy Blue */
 .g3 {
-  background: radial-gradient(circle at center, rgba(11, 25, 44, 0.8) 0, rgba(11, 25, 44, 0) 50%) no-repeat;
+  background: radial-gradient(circle at center, rgba(26, 54, 93, 0.8) 0, rgba(26, 54, 93, 0) 50%) no-repeat;
   top: 30%;
   left: -10%;
   transform-origin: calc(50% + 400px);
   animation: moveInCircle 40s linear infinite;
 }
 
-/* Muted Blue */
+/* Vibrant Logo Blue Accent */
 .g4 {
-  background: radial-gradient(circle at center, rgba(49, 82, 122, 0.6) 0, rgba(49, 82, 122, 0) 50%) no-repeat;
+  background: radial-gradient(circle at center, rgba(147, 210, 240, 0.6) 0, rgba(147, 210, 240, 0) 50%) no-repeat;
   top: 40%;
   left: 40%;
   animation: moveHorizontal 40s ease infinite;
