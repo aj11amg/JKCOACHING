@@ -1,0 +1,34 @@
+{
+    "redirects": [
+        {
+            "source": "/my-story",
+            "destination": "/mystory.html",
+            "permanent": true
+        },
+        {
+            "source": "/my-story/:match*",
+            "destination": "/mystory.html",
+            "permanent": true
+        },
+        {
+            "source": "/contact",
+            "destination": "/index.html#contact",
+            "permanent": true
+        },
+        {
+            "source": "/contact-us",
+            "destination": "/index.html#contact",
+            "permanent": true
+        },
+        {
+            "source": "/services",
+            "destination": "/services.html",
+            "permanent": true
+        },
+        {
+            "source": "/about",
+            "destination": "/about.html",
+            "permanent": true
+        }
+    ]
+}
