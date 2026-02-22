@@ -16,7 +16,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <meta name="keywords"
@@ -405,13 +405,16 @@
         const fadeUpElements = document.querySelectorAll('.svc-detail-content, .section-header, .cta-content');
         fadeUpElements.forEach(el => { el.classList.add('animate-on-scroll'); slickObserver.observe(el); });
 
-        const scaleElements = document.querySelectorAll('.svc-detail-image, .step-card');
+        const scaleElements = document.querySelectorAll('.svc-detail-image');
         scaleElements.forEach((el, index) => {
             el.classList.add('animate-scale-up');
-            if (index % 3 === 1) el.classList.add('delay-100');
-            if (index % 3 === 2) el.classList.add('delay-200');
+            if (index % 2 === 1) el.classList.add('delay-100');
             slickObserver.observe(el);
         });
+
+        // Custom sequenced animation for Coaching Journey
+        const stepsGrid = document.querySelector('.steps-grid');
+        if (stepsGrid) slickObserver.observe(stepsGrid);
 
         // ===== Smooth Scroll =====
         document.querySelectorAll('a[href^="#"]').forEach(a => {
