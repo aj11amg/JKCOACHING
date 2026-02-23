@@ -2,7 +2,7 @@
 .cta-pro {
     position: relative;
     padding: 140px 0;
-    background: #0f141e;
+    background: var(--bg-dark);
     /* Deep rich navy-slate */
     overflow: hidden;
     display: flex;

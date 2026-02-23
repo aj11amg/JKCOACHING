@@ -778,6 +778,9 @@
     const fadeUpElements = document.querySelectorAll('.section-header, .benefits-content, .about-content, .featured-content, .cta-content');
     fadeUpElements.forEach(el => { el.classList.add('animate-on-scroll'); slickObserver.observe(el); });
 
+    // Ensure elements that already have animate-on-scroll in markup are also observed
+    document.querySelectorAll('.animate-on-scroll').forEach(el => slickObserver.observe(el));
+
     const scaleElements = document.querySelectorAll('.card, .testimonial-card, .about-portrait, .featured-image, .benefit-item');
     scaleElements.forEach((el, index) => {
       el.classList.add('animate-scale-up');

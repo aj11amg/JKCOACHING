@@ -410,6 +410,9 @@
         const fadeUpElements = document.querySelectorAll('.svc-detail-content, .section-header, .cta-content');
         fadeUpElements.forEach(el => { el.classList.add('animate-on-scroll'); slickObserver.observe(el); });
 
+        // Ensure pre-applied animation elements are observed
+        document.querySelectorAll('.animate-on-scroll').forEach(el => slickObserver.observe(el));
+
         const scaleElements = document.querySelectorAll('.svc-detail-image');
         scaleElements.forEach((el, index) => {
             el.classList.add('animate-scale-up');
